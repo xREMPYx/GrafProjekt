@@ -23,7 +23,7 @@ namespace GrafProjekt.Service
         {
             recordService = new ServiceRecord();
             borderService = new ServiceBorder();
-            linePen = new Pen(new SolidBrush(Color.FromArgb(255, 51, 154, 245)), 2f);
+            linePen = new Pen(new SolidBrush(ProgramSettings.LineColor), 2f);
 
             UpdateRecords(from, to);            
         }
@@ -40,6 +40,7 @@ namespace GrafProjekt.Service
             PrintLines(graphics);
             PrintCurrentPoint(graphics);
             PrintBorder(graphics);
+            PrintCurrentPrice(graphics);
         }
         
         private void PrintLines(Graphics graphics)
@@ -67,6 +68,25 @@ namespace GrafProjekt.Service
             var record = displayRecords.Last();
             graphics.FillEllipse(new SolidBrush(ProgramSettings.ActualPointColor), record.X - d / 2, record.Y - d / 2, d, d);
             graphics.DrawEllipse(Pens.White, record.X - d / 2, record.Y - d / 2, d, d);
-        }        
+        }              
+        private void PrintCurrentPrice(Graphics graphics)
+        {
+            var record = displayRecords.Last();
+
+            string price = Math.Round(record.Price, 2).ToString();
+            SizeF textSize = graphics.MeasureString(price, ProgramSettings.TextFont);
+
+            int recOffsetSize = 6;
+            Rectangle r = new(
+                new Point(record.X + recOffsetSize / 2, record.Y - ((int)textSize.Height + recOffsetSize) / 2),
+                new Size((int)textSize.Width + recOffsetSize, (int)textSize.Height + recOffsetSize));
+
+            graphics.FillRectangle(new SolidBrush(ProgramSettings.IncreasedVolumeColor), r);
+
+            graphics.DrawString(price, 
+                ProgramSettings.TextFont, 
+                Brushes.White, 
+                new Point(record.X + recOffsetSize, record.Y - (int)textSize.Height / 2));
+        }
     }
 }

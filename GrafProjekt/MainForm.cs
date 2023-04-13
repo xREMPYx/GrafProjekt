@@ -8,7 +8,7 @@ namespace GrafProjekt
         public MainForm()
         {
             InitializeComponent();
-            this.DateTimePicker_From.Value = DateTime.Now.AddMonths(-24);
+            this.DateTimePicker_From.Value = DateTime.Now.AddYears(-2);  
         }       
 
         private void ChartPictureBox_Paint(object sender, PaintEventArgs e)

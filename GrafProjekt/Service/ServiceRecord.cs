@@ -41,7 +41,7 @@ namespace GrafProjekt.Service
                 maxVolume = Math.Max(maxVolume, r.Volume);
             }
 
-            double priceScale = ProgramSettings.ChartHeight / maxPrice * 0.9;
+            double priceScale = ProgramSettings.ChartHeight / maxPrice * 0.8;
             double volumeScale = (double)ProgramSettings.ChartHeight / (double)maxVolume / 5;
 
             int offsetX = ProgramSettings.ChartWidth / ProgramSettings.ChartDisplayRecordsCount;
@@ -51,8 +51,8 @@ namespace GrafProjekt.Service
             foreach (ModelRecord r in records)
             {
                 r.X = offsetSum += offsetX;
-                r.Y = ProgramSettings.ChartHeight - (int)(r.Price * priceScale);
-                r.VolumeHeight = (int)(r.Volume * volumeScale);                
+                r.VolumeHeight = (int)(r.Volume * volumeScale);
+                r.Y = ProgramSettings.ChartHeight - (int)(r.Price * priceScale);                             
                 r.VolumeIncreased = i == 0 || records[i - 1].Volume < records[i].Volume;
                 i++;
             }

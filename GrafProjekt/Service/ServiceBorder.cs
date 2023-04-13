@@ -11,36 +11,77 @@ namespace GrafProjekt.Service
     {
         public ModelBorder GetBorder(IList<ModelRecord> records)
         {
-            int count = 5;
+            int dateValuesCount = 10;
+            int priceValuesCount = 6;
 
             return new ModelBorder()
             {
-                DateValues = GetDateValues(records, count),
-                PriceValues = GetPriceValues(records, count)
+                DateValues = GetDateValues(records, dateValuesCount),
+                PriceValues = GetPriceValues(records, priceValuesCount)
             };
         }
 
-        private IEnumerable<string> GetPriceValues(IList<ModelRecord> records, int count)
+        private IList<ModelPrice> GetPriceValues(IList<ModelRecord> records, int count)
         {
-            records.OrderBy(r => r.Price);
+            records = records
+                .OrderBy(r => r.Y)
+                .ToList();
 
-            double min = records.First().Price;
-            double max = records.Last().Price;
+            int min = records.First().Y;
+            int max = records.Last().Y;
 
-            double offset = (max - min) / count;
+            int offset = (int)((max - min) / count * 0.9);
 
-            double i = min;
+            int sum = min;
             return Enumerable.Range(0, count)
-                .Select(x => (i += offset).ToString());
+                .Select(x => GetClosestElementByYValueBinary(records, sum += offset))
+                .ToList();
         }
 
-        private IEnumerable<string> GetDateValues(IList<ModelRecord> records, int count)
+        private ModelPrice GetClosestElementByYValueBinary(IList<ModelRecord> records, int yValue, int left = -1, int right = -1)
         {
-            int offset = records.Count() / (count + 10);
+            if (right == -1)
+            {
+                left = 0;
+                right = records.Count();
+            }
 
-            int i = 0;
-            return Enumerable.Range(0, 5)
-                .Select(x => records[i += offset].Date.ToString("MMMM"));
+            int mid = (left + right) / 2;
+
+            var record = records[mid];
+
+            return record.Y == yValue || left >= right ?
+                new ModelPrice()
+                {
+                    Y = record.Y,
+                    Price = record.Price
+                }
+                : record.Y < yValue ?
+                GetClosestElementByYValueBinary(records, yValue, mid + 1, right):
+                GetClosestElementByYValueBinary(records, yValue, 0, mid - 1);
+        }
+
+        private IList<ModelDate> GetDateValues(IList<ModelRecord> records, int count)
+        {
+            int offset = records.Count() / (count);
+
+            IList<ModelDate> result = new List<ModelDate>(); 
+            for (int i = 2; i < count + 1; i++)
+            {
+                var actualRecord = records[(i - 1) * offset];
+
+                string date = actualRecord.Date.Year == records[offset * i].Date.Year ?
+                    actualRecord.Date.ToString("MMMM") :
+                    actualRecord.Date.ToString("yyyy");
+
+                result.Add(new ModelDate()
+                {
+                    X = actualRecord.X,
+                    Date = date
+                });
+            }
+
+            return result;
         }
     }
 }

@@ -8,8 +8,8 @@ namespace GrafProjekt.Model
 {
     public class ModelBorder : ModelPrintable
     {
-        public IEnumerable<string> DateValues { get; set; }
-        public IEnumerable<string> PriceValues { get; set; }
+        public IEnumerable<ModelDate> DateValues { get; set; }
+        public IEnumerable<ModelPrice> PriceValues { get; set; }
 
         public override void Print(Graphics graphics)
         {
@@ -20,21 +20,14 @@ namespace GrafProjekt.Model
 
             graphics.DrawLines(new Pen(ProgramSettings.BorderLineColor, 2f), points);
 
-            Font f = new ("Arial", 10);
-
-            int offsetX = w / DateValues.Count();
-            int offsetY = h / DateValues.Count();
-
-            int i = 0;
-            foreach (string value in DateValues)
+            foreach (ModelDate date in DateValues)
             {
-                graphics.DrawString(value, f, new SolidBrush(ProgramSettings.TextColor), new PointF(w - (i += offsetX) + 5, h));
+                date.Print(graphics);
             }
 
-            i = 0;
-            foreach (string value in PriceValues)
+            foreach (ModelPrice price in PriceValues)
             {
-                graphics.DrawString(value, f, new SolidBrush(ProgramSettings.TextColor), new PointF(w + 5, h + 20 - (i += offsetY)));
+                price.Print(graphics);                
             }
         }
     }
