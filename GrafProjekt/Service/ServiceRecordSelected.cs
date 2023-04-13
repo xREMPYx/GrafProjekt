@@ -18,14 +18,14 @@ namespace GrafProjekt.Service
 
         public ModelRecordSelected? GetRecordSelected(MouseEventArgs e)
         {
-            ModelRecord? r = GetClosestElementByYValueBinary(e.X);
+            ModelRecord? r = GetClosestElementByXValueBinary(e.X);
 
-            return e.X > ProgramSettings.ChartWidth || e.X < 0 || r is null ?
+            return e.X > ProgramSettings.ChartWidth + 10 || e.X < -10 || r is null ?
                 null : 
                 new() { Record = r };
         }
 
-        private ModelRecord? GetClosestElementByYValueBinary(int xValue, int left = -10, int right = -10)
+        private ModelRecord? GetClosestElementByXValueBinary(int xValue, int left = -10, int right = -10)
         {
             if (right == -10)
             {
@@ -42,8 +42,8 @@ namespace GrafProjekt.Service
                  xValue <= 0 ? 
                  null : 
                  record.X < xValue ?
-                GetClosestElementByYValueBinary(xValue, mid + 1, right) :
-                GetClosestElementByYValueBinary(xValue, 0, mid - 1);
+                GetClosestElementByXValueBinary(xValue, mid + 1, right) :
+                GetClosestElementByXValueBinary(xValue, 0, mid - 1);
         }
     }
 }

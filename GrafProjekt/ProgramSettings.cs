@@ -9,7 +9,7 @@ namespace GrafProjekt
     public static class ProgramSettings
     {        
         public static int ChartWidth { get; } = 580;
-        public static int ChartHeight { get; } = 420;
+        public static int ChartHeight { get; } = 430;
         public static int ChartDisplayRecordsCount { get; set; } = 29;
         // (ChartWidth % ChartDisplayRecordsCount) <- has to be equal to zero,
         // other value causes picture box to draw points incorectly

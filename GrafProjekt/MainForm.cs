@@ -55,7 +55,7 @@ namespace GrafProjekt
                 20 : v == 2 ? 
                 10 : v == 3 ? 
                 5 : v == 4 ? 
-                4 : 
+                4 :
                 2;
 
             ProgramSettings.ChartDisplayRecordsCount = ProgramSettings.ChartWidth / r;
@@ -70,6 +70,30 @@ namespace GrafProjekt
             ProgramSettings.ChartLineWidth = v * 0.1f;
 
             UpdateRecords();
+        }
+
+        private void DateTimePicker_From_ValueChanged(object sender, EventArgs e)
+        {
+            var fromValue = this.DateTimePicker_From.Value;
+            var toValue = this.DateTimePicker_To.Value;
+
+            if (toValue.Subtract(fromValue) < TimeSpan.FromDays(90) || toValue < fromValue || fromValue > DateTime.Now.AddMonths(-3))
+            {
+                this.DateTimePicker_From.Value = toValue.AddMonths(-3).AddDays(-1);
+                MessageBox.Show("Hodnoty datumù se musí lišit o více než 3 mìsíce a zárovìò hodnota datumu od musí být menší než do");
+            }
+        }
+
+        private void DateTimePicker_To_ValueChanged(object sender, EventArgs e)
+        {
+            var fromValue = this.DateTimePicker_From.Value;
+            var toValue = this.DateTimePicker_To.Value;
+
+            if (toValue.Subtract(fromValue) < TimeSpan.FromDays(90) || toValue < fromValue || fromValue > DateTime.Now.AddMonths(-3))
+            {
+                this.DateTimePicker_To.Value = DateTime.Now;
+                MessageBox.Show("Hodnoty datumù se musí lišit o více než 3 mìsíce a zárovìò hodnota datumu od musí být menší než do");
+            }
         }
     }
 }

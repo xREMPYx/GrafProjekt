@@ -65,6 +65,7 @@
             this.DateTimePicker_From.Size = new System.Drawing.Size(200, 23);
             this.DateTimePicker_From.TabIndex = 1;
             this.DateTimePicker_From.Value = new System.DateTime(2010, 1, 1, 23, 59, 0, 0);
+            this.DateTimePicker_From.ValueChanged += new System.EventHandler(this.DateTimePicker_From_ValueChanged);
             // 
             // DateTimePicker_To
             // 
@@ -72,6 +73,7 @@
             this.DateTimePicker_To.Name = "DateTimePicker_To";
             this.DateTimePicker_To.Size = new System.Drawing.Size(200, 23);
             this.DateTimePicker_To.TabIndex = 2;
+            this.DateTimePicker_To.ValueChanged += new System.EventHandler(this.DateTimePicker_To_ValueChanged);
             // 
             // label1
             // 

@@ -90,8 +90,19 @@ namespace GrafProjekt.Service
         {            
             int d = 6;
             var record = displayRecords.Last();
-            graphics.FillEllipse(new SolidBrush(ProgramSettings.ActualPointColor), record.X - d / 2, record.Y - d / 2, d, d);
-            graphics.DrawEllipse(Pens.White, record.X - d / 2, record.Y - d / 2, d, d);
+            graphics.FillEllipse(
+                new SolidBrush(ProgramSettings.ActualPointColor), 
+                record.X - d / 2, 
+                record.Y - d / 2, 
+                d, 
+                d);
+
+            graphics.DrawEllipse(
+                Pens.White, 
+                record.X - d / 2, 
+                record.Y - d / 2, 
+                d, 
+                d);
         }              
         private void PrintCurrentPrice(Graphics graphics)
         {
