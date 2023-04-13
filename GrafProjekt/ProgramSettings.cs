@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 namespace GrafProjekt
 {
     public static class ProgramSettings
-    {
+    {        
         public static int ChartWidth { get; } = 580;
         public static int ChartHeight { get; } = 420;
-        public static int ChartDisplayRecordsCount { get; } = 580;
+        public static int ChartDisplayRecordsCount { get; set; } = 29;
         // (ChartWidth % ChartDisplayRecordsCount) <- has to be equal to zero,
         // other value causes picture box to draw points incorectly
+
+        public static float ChartLineWidth { get; set; } = 1;
 
         public static Color LineColor { get; } = Color.FromArgb(255, 51, 154, 245);
         public static Color TextColor { get; } = Color.FromArgb(255, 125, 131, 136);        

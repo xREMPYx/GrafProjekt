@@ -63,10 +63,11 @@ namespace GrafProjekt.Service
 
         private IList<ModelDate> GetDateValues(IList<ModelRecord> records, int count)
         {
-            int offset = records.Count() / (count);
+            int offset = records.Count() / count;
 
-            IList<ModelDate> result = new List<ModelDate>(); 
-            for (int i = 2; i < count; i++)
+            IList<ModelDate> result = new List<ModelDate>();
+
+            for (int i = 2; (i * offset) < records.Count(); i++)
             {
                 var actualRecord = records[(i - 1) * offset];
 

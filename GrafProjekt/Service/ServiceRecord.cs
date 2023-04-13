@@ -9,7 +9,12 @@ namespace GrafProjekt.Service
 {
     public class ServiceRecord
     {
-        private ServiceFile fileService = new ServiceFile();        
+        private ServiceFile fileService = new ServiceFile();      
+        
+        public string ChangeSourceFile()
+        {
+            return fileService.ChangeSourcePath();
+        }
 
         public IList<ModelRecord> GetRecords(DateTime from, DateTime to, int recordsCount)
         {

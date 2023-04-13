@@ -29,6 +29,13 @@ namespace GrafProjekt.Service
             SetDefaultDateRange();
         }
 
+        public string ChangeSourceFile()
+        {
+            string name = recordService.ChangeSourceFile();
+            SetDefaultDateRange();
+            return name;
+        }
+
         public void UpdateRecords(DateTime from, DateTime to)
         {
             displayRecords = recordService.GetRecords(from, to, ProgramSettings.ChartDisplayRecordsCount);
@@ -65,7 +72,7 @@ namespace GrafProjekt.Service
                 .ToArray();
 
             graphics.DrawLines(
-                new Pen(new SolidBrush(ProgramSettings.LineColor), 3f),
+                new Pen(new SolidBrush(ProgramSettings.LineColor), ProgramSettings.ChartLineWidth),
                 points);
         }
         private void PrintBorder(Graphics graphics)

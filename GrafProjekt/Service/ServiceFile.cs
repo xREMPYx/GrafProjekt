@@ -9,13 +9,14 @@ namespace GrafProjekt.Service
 {
     public class ServiceFile
     {
-        private const string FILE_NAME = "TSLA.csv";
+        private string filePath = "TSLA.csv";
+        public string GetFileName() => Path.GetFileName(filePath);
         
         public IList<ModelRecord> GetAllRecords()
         {
             IList<ModelRecord> records = new List<ModelRecord>();
 
-            using (StreamReader reader = new StreamReader(FILE_NAME))
+            using (StreamReader reader = new StreamReader(filePath))
             {
                 reader.ReadLine(); //skips heading
 
@@ -37,6 +38,30 @@ namespace GrafProjekt.Service
                 Date = DateTime.Parse(parts[0]),
                 Price = Convert.ToDouble(parts[1].Replace('.', ',')),
                 Volume = Convert.ToInt32(parts[6])
+            };
+        }
+
+        public string ChangeSourcePath()
+        {
+            using (OpenFileDialog fileDialog = new OpenFileDialog() { Filter = "Yahoo Finance Csv File | *.csv" })
+            {                
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string tmp = filePath;
+                    filePath = fileDialog.FileName;
+
+                    try
+                    {
+                        var r = GetAllRecords();
+                        MessageBox.Show("Soubor byl ůspěšně nahrán.");                        
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Zvolený soubor není v pořádku.");
+                        filePath = tmp;
+                    }                   
+                }
+                return GetFileName();
             };
         }
     }
