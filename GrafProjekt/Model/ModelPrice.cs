@@ -22,6 +22,11 @@ namespace GrafProjekt.Model
 
             graphics.DrawLine(
                 new Pen(new SolidBrush(ProgramSettings.BorderLineColor)), 
+                new PointF(0, Y),
+                new PointF(ProgramSettings.ChartWidth + 5, Y));
+
+            graphics.DrawLine(
+                new Pen(new SolidBrush(ProgramSettings.BorderLineColor), 2),
                 new PointF(ProgramSettings.ChartWidth + 5, Y),
                 new PointF(ProgramSettings.ChartWidth + 10, Y));
         }

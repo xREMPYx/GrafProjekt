@@ -66,7 +66,7 @@ namespace GrafProjekt.Service
             int offset = records.Count() / (count);
 
             IList<ModelDate> result = new List<ModelDate>(); 
-            for (int i = 2; i < count + 1; i++)
+            for (int i = 2; i < count; i++)
             {
                 var actualRecord = records[(i - 1) * offset];
 

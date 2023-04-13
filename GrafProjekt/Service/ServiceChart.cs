@@ -8,39 +8,54 @@ using System.Threading.Tasks;
 namespace GrafProjekt.Service
 {
     public class ServiceChart
-    {
-        private Pen linePen;
-        
+    {        
         private ServiceRecord recordService;
 
         private ServiceBorder borderService;
+
+        private ServiceRecordSelected recordSelectedService;
 
         private IList<ModelRecord> displayRecords;
 
         private ModelBorder border;
 
-        public ServiceChart(DateTime from, DateTime to)
+        private ModelRecordSelected? selectedRecord;
+
+        public ServiceChart()
         {
             recordService = new ServiceRecord();
             borderService = new ServiceBorder();
-            linePen = new Pen(new SolidBrush(ProgramSettings.LineColor), 2f);
-
-            UpdateRecords(from, to);            
+            recordSelectedService = new ServiceRecordSelected();
+            SetDefaultDateRange();
         }
 
         public void UpdateRecords(DateTime from, DateTime to)
         {
             displayRecords = recordService.GetRecords(from, to, ProgramSettings.ChartDisplayRecordsCount);
             border = borderService.GetBorder(displayRecords);
+            recordSelectedService.UpdateRecords(displayRecords);
         }
+
+        public void UpdateSelectedRecord(MouseEventArgs e)
+        {
+            selectedRecord = recordSelectedService.GetRecordSelected(e);
+        }
+
+        public void DeleteSelectedRecord()
+        {
+            selectedRecord = null;
+        }
+
+        public void SetDefaultDateRange() => UpdateRecords(DateTime.Now.AddYears(-10), DateTime.Now);
 
         public void Print(Graphics graphics)
         {
+            PrintBorder(graphics);
             PrintVolumeBars(graphics);
             PrintLines(graphics);
-            PrintCurrentPoint(graphics);
-            PrintBorder(graphics);
+            PrintCurrentPoint(graphics);            
             PrintCurrentPrice(graphics);
+            PrintSelectedRecord(graphics);
         }
         
         private void PrintLines(Graphics graphics)
@@ -49,7 +64,9 @@ namespace GrafProjekt.Service
                 .Select(r => r.GetPoint())
                 .ToArray();
 
-            graphics.DrawLines(linePen, points);
+            graphics.DrawLines(
+                new Pen(new SolidBrush(ProgramSettings.LineColor), 3f),
+                points);
         }
         private void PrintBorder(Graphics graphics)
         {
@@ -87,6 +104,15 @@ namespace GrafProjekt.Service
                 ProgramSettings.TextFont, 
                 Brushes.White, 
                 new Point(record.X + recOffsetSize, record.Y - (int)textSize.Height / 2));
+        }
+        private void PrintSelectedRecord(Graphics graphics)
+        {
+            if (selectedRecord is null)
+            {
+                return;
+            }
+
+            selectedRecord.Print(graphics);
         }
     }
 }

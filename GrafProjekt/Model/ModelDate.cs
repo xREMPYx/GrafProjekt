@@ -13,16 +13,21 @@ namespace GrafProjekt.Model
         {
             SizeF size = graphics.MeasureString(Date, ProgramSettings.TextFont);
 
+            graphics.DrawString(
+                Date,
+                ProgramSettings.TextFont,
+                new SolidBrush(ProgramSettings.TextColor),
+                new PointF(X - size.Width / 2, ProgramSettings.ChartHeight + 5));
+
             graphics.DrawLine(
                 new Pen(new SolidBrush(ProgramSettings.BorderLineColor)),
-                new Point(X, ProgramSettings.ChartHeight),
+                new Point(X, 0),
                 new Point(X, ProgramSettings.ChartHeight + 5));
 
-            graphics.DrawString(
-                Date, 
-                ProgramSettings.TextFont, 
-                new SolidBrush(ProgramSettings.TextColor), 
-                new PointF(X - size.Width / 2, ProgramSettings.ChartHeight + 5));
+            graphics.DrawLine(
+                new Pen(new SolidBrush(ProgramSettings.BorderLineColor), 2),
+                new Point(X, ProgramSettings.ChartHeight),
+                new Point(X, ProgramSettings.ChartHeight + 5));            
         }
     }
 }

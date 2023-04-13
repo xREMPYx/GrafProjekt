@@ -40,23 +40,25 @@
             // ChartPictureBox
             // 
             this.ChartPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.ChartPictureBox.Location = new System.Drawing.Point(5, 5);
+            this.ChartPictureBox.Location = new System.Drawing.Point(21, 24);
             this.ChartPictureBox.Name = "ChartPictureBox";
-            this.ChartPictureBox.Size = new System.Drawing.Size(650, 470);
+            this.ChartPictureBox.Size = new System.Drawing.Size(620, 460);
             this.ChartPictureBox.TabIndex = 0;
             this.ChartPictureBox.TabStop = false;
             this.ChartPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ChartPictureBox_Paint);
+            this.ChartPictureBox.MouseLeave += new System.EventHandler(this.ChartPictureBox_MouseLeave);
+            this.ChartPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChartPictureBox_MouseMove);
             // 
             // DateTimePicker_From
             // 
-            this.DateTimePicker_From.Location = new System.Drawing.Point(661, 27);
+            this.DateTimePicker_From.Location = new System.Drawing.Point(666, 42);
             this.DateTimePicker_From.Name = "DateTimePicker_From";
             this.DateTimePicker_From.Size = new System.Drawing.Size(200, 23);
             this.DateTimePicker_From.TabIndex = 1;
             // 
             // DateTimePicker_To
             // 
-            this.DateTimePicker_To.Location = new System.Drawing.Point(661, 86);
+            this.DateTimePicker_To.Location = new System.Drawing.Point(666, 101);
             this.DateTimePicker_To.Name = "DateTimePicker_To";
             this.DateTimePicker_To.Size = new System.Drawing.Size(200, 23);
             this.DateTimePicker_To.TabIndex = 2;
@@ -64,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(661, 9);
+            this.label1.Location = new System.Drawing.Point(666, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 15);
             this.label1.TabIndex = 3;
@@ -73,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(661, 68);
+            this.label2.Location = new System.Drawing.Point(666, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 15);
             this.label2.TabIndex = 4;
@@ -81,7 +83,7 @@
             // 
             // Btn_Refresh
             // 
-            this.Btn_Refresh.Location = new System.Drawing.Point(661, 132);
+            this.Btn_Refresh.Location = new System.Drawing.Point(666, 147);
             this.Btn_Refresh.Name = "Btn_Refresh";
             this.Btn_Refresh.Size = new System.Drawing.Size(200, 23);
             this.Btn_Refresh.TabIndex = 5;
@@ -93,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 481);
+            this.ClientSize = new System.Drawing.Size(883, 503);
             this.Controls.Add(this.Btn_Refresh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
