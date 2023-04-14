@@ -157,11 +157,11 @@
             this.trackBar_line_width.LargeChange = 10;
             this.trackBar_line_width.Location = new System.Drawing.Point(666, 274);
             this.trackBar_line_width.Maximum = 40;
-            this.trackBar_line_width.Minimum = 10;
+            this.trackBar_line_width.Minimum = 15;
             this.trackBar_line_width.Name = "trackBar_line_width";
             this.trackBar_line_width.Size = new System.Drawing.Size(200, 45);
             this.trackBar_line_width.TabIndex = 10;
-            this.trackBar_line_width.Value = 10;
+            this.trackBar_line_width.Value = 15;
             this.trackBar_line_width.ValueChanged += new System.EventHandler(this.trackBar_line_width_ValueChanged);
             // 
             // MainForm

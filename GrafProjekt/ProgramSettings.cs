@@ -14,7 +14,7 @@ namespace GrafProjekt
         // (ChartWidth % ChartDisplayRecordsCount) <- has to be equal to zero,
         // other value causes picture box to draw points incorectly
 
-        public static float ChartLineWidth { get; set; } = 1;
+        public static float ChartLineWidth { get; set; } = 1.5f;
 
         public static Color LineColor { get; } = Color.FromArgb(255, 51, 154, 245);
         public static Color TextColor { get; } = Color.FromArgb(255, 125, 131, 136);        

@@ -69,7 +69,7 @@ namespace GrafProjekt
 
             ProgramSettings.ChartLineWidth = v * 0.1f;
 
-            UpdateRecords();
+            this.ChartPictureBox.Refresh();
         }
 
         private void DateTimePicker_From_ValueChanged(object sender, EventArgs e)
