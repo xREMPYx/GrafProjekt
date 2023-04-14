@@ -52,7 +52,7 @@ namespace GrafProjekt.Model
 
         private void PrintRecordDateBox(Graphics graphics)
         {
-            string date = Record.Date.ToString("d/M/yyyy");
+            string date = Record.Date.ToShortDateString();
             SizeF textSize = graphics.MeasureString(date, ProgramSettings.TextFont);
 
             int recOffsetSize = 6;

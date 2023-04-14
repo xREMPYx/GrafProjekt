@@ -25,12 +25,14 @@ namespace GrafProjekt.Service
             if (records.Count <= 0)
                 throw new Exception("Sequence contains no records");
 
-            double offset = records.Count() / recordsCount;
+            int offset = records.Count() / recordsCount;
 
             double i = 0;
-            var displayRecords = Enumerable.Range(0, recordsCount)
+            var displayRecords = Enumerable.Range(0, recordsCount - 1)
                 .Select(r => records[(int)(i += offset)])
                 .ToList();
+
+            displayRecords.Add(records.Last()); // <- ensures that last (actual) record is displayed
 
             return GetPrintableRecords(displayRecords);
         }
