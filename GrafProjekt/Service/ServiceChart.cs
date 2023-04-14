@@ -56,7 +56,7 @@ namespace GrafProjekt.Service
         public void SetDefaultDateRange() => UpdateRecords(DateTime.Now.AddYears(-10), DateTime.Now);
 
         public void Print(Graphics graphics)
-        {
+        {            
             PrintBorder(graphics);
             PrintVolumeBars(graphics);
             PrintLines(graphics);

@@ -34,11 +34,11 @@ namespace GrafProjekt.Service
 
             int sum = min;
             return Enumerable.Range(0, count)
-                .Select(x => GetClosestElementByYValueBinary(records, sum += offset))
+                .Select(x => GetClosestElementToYValueBinary(records, sum += offset))
                 .ToList();
         }
 
-        private ModelPrice GetClosestElementByYValueBinary(IList<ModelRecord> records, int yValue, int left = -1, int right = -1)
+        private ModelPrice GetClosestElementToYValueBinary(IList<ModelRecord> records, int yValue, int left = -1, int right = -1)
         {
             if (right == -1)
             {
@@ -57,8 +57,8 @@ namespace GrafProjekt.Service
                     Price = record.Price
                 }
                 : record.Y < yValue ?
-                GetClosestElementByYValueBinary(records, yValue, mid + 1, right):
-                GetClosestElementByYValueBinary(records, yValue, 0, mid - 1);
+                GetClosestElementToYValueBinary(records, yValue, mid + 1, right):
+                GetClosestElementToYValueBinary(records, yValue, 0, mid - 1);
         }
 
         private IList<ModelDate> GetDateValues(IList<ModelRecord> records, int count)
