@@ -16,7 +16,7 @@ namespace GrafProjekt.Model
 
         public override void Print(Graphics graphics)
         {                        
-            float penWidth = (float)ProgramSettings.ChartWidth / (float)ProgramSettings.ChartDisplayRecordsCount / 2.5f;
+            float penWidth = (float)ProgramSettings.ChartWidth / (float)ProgramSettings.ChartDisplayRecordsCount / 1.5f;
 
             Brush b = VolumeIncreased ? 
                 new SolidBrush(ProgramSettings.IncreasedVolumeColor) :
