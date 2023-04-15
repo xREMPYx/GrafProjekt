@@ -11,7 +11,13 @@ namespace GrafProjekt.Model.Border
         public double Price { get; set; }
         public override void Print(Graphics graphics)
         {
-            string price = Math.Round(Price, 2).ToString();
+            double roundedPrice = Price > 100 ?
+                Math.Round(Price, 0) : Price > 10 ?
+                Math.Round(Price, 1) : Price > 1 ? 
+                Math.Round(Price, 1) : 
+                Price;
+
+            string price = roundedPrice.ToString();
 
             SizeF size = graphics.MeasureString(price, ProgramSettings.TextFont);
 

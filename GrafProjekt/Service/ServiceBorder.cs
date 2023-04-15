@@ -64,15 +64,15 @@ namespace GrafProjekt.Service
 
         private IList<ModelBorderDate> GetDateValues(IList<ModelRecord> records, int count)
         {
-            int offset = records.Count() / count;
+            double offset = records.Count() / count;
 
             IList<ModelBorderDate> result = new List<ModelBorderDate>();
 
-            for (int i = 2; (i * offset) < records.Count(); i++)
+            for (int i = 1; (i * offset) < records.Count(); i++)
             {
-                var actualRecord = records[(i - 1) * offset];
+                var actualRecord = records[(int)(i * offset)];
 
-                string date = actualRecord.Date.Year == records[offset * i].Date.Year ?
+                string date = actualRecord.Date.Year == records[(int)(offset * (i - 1))].Date.Year ?
                     actualRecord.Date.ToString("MMMM") :
                     actualRecord.Date.ToString("yyyy");
 
