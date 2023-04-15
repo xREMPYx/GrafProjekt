@@ -16,7 +16,7 @@ namespace GrafProjekt.Service
             return fileService.ChangeSourcePath();
         }
 
-        public IList<ModelRecord> GetRecords(DateTime from, DateTime to, int recordsCount)
+        public IList<ModelRecord> GetDisplayRecords(DateTime from, DateTime to, int recordsCount)
         {
             var records = fileService.GetAllRecords()
                 .Where(r => r.Date >= from && r.Date <= to)

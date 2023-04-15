@@ -39,7 +39,7 @@ namespace GrafProjekt.Service
 
         public void UpdateRecords(DateTime from, DateTime to)
         {
-            displayRecords = recordService.GetRecords(from, to, ProgramSettings.ChartDisplayRecordsCount);
+            displayRecords = recordService.GetDisplayRecords(from, to, ProgramSettings.ChartDisplayRecordsCount);
             border = borderService.GetBorder(displayRecords);
             recordSelectedService.UpdateRecords(displayRecords);
         }

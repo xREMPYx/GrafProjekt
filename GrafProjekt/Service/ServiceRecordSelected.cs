@@ -22,7 +22,13 @@ namespace GrafProjekt.Service
 
             return e.X > ProgramSettings.ChartWidth + 10 || e.X < -10 || r is null ?
                 null : 
-                new() { Record = r };
+                new ModelRecordSelected()
+                {
+                    Y = r.Y,
+                    X = r.X,
+                    Date = r.Date,
+                    Price = r.Price                                                            
+                };
         }
 
         private ModelRecord? GetClosestElementToXValueBinary(int xValue, int left = -10, int right = -10)
