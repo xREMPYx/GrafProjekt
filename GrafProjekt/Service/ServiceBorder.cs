@@ -1,4 +1,5 @@
 ﻿using GrafProjekt.Model;
+using GrafProjekt.Model.Border;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace GrafProjekt.Service
             };
         }
 
-        private IList<ModelPrice> GetPriceValues(IList<ModelRecord> records, int count)
+        private IList<ModelBorderPrice> GetPriceValues(IList<ModelRecord> records, int count)
         {
             records = records
                 .OrderBy(r => r.Y)
@@ -38,7 +39,7 @@ namespace GrafProjekt.Service
                 .ToList();
         }
 
-        private ModelPrice GetClosestElementToYValueBinary(IList<ModelRecord> records, int yValue, int left = -1, int right = -1)
+        private ModelBorderPrice GetClosestElementToYValueBinary(IList<ModelRecord> records, int yValue, int left = -1, int right = -1)
         {
             if (right == -1)
             {
@@ -51,7 +52,7 @@ namespace GrafProjekt.Service
             var record = records[mid];
 
             return record.Y == yValue || left >= right ?
-                new ModelPrice()
+                new ModelBorderPrice()
                 {
                     Y = record.Y,
                     Price = record.Price
@@ -61,11 +62,11 @@ namespace GrafProjekt.Service
                 GetClosestElementToYValueBinary(records, yValue, 0, mid - 1);
         }
 
-        private IList<ModelDate> GetDateValues(IList<ModelRecord> records, int count)
+        private IList<ModelBorderDate> GetDateValues(IList<ModelRecord> records, int count)
         {
             int offset = records.Count() / count;
 
-            IList<ModelDate> result = new List<ModelDate>();
+            IList<ModelBorderDate> result = new List<ModelBorderDate>();
 
             for (int i = 2; (i * offset) < records.Count(); i++)
             {
@@ -75,7 +76,7 @@ namespace GrafProjekt.Service
                     actualRecord.Date.ToString("MMMM") :
                     actualRecord.Date.ToString("yyyy");
 
-                result.Add(new ModelDate()
+                result.Add(new ModelBorderDate()
                 {
                     X = actualRecord.X,
                     Date = date

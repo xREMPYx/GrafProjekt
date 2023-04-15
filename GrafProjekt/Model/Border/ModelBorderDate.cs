@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrafProjekt.Model
+namespace GrafProjekt.Model.Border
 {
     public class ModelDate : ModelPrintable
     {
@@ -27,7 +27,7 @@ namespace GrafProjekt.Model
             graphics.DrawLine(
                 new Pen(new SolidBrush(ProgramSettings.BorderLineColor), 2),
                 new Point(X, ProgramSettings.ChartHeight),
-                new Point(X, ProgramSettings.ChartHeight + 5));            
+                new Point(X, ProgramSettings.ChartHeight + 5));
         }
     }
 }

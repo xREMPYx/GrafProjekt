@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrafProjekt.Model
+namespace GrafProjekt.Model.Border
 {
     public class ModelBorder : ModelPrintable
     {
@@ -27,7 +27,7 @@ namespace GrafProjekt.Model
 
             foreach (ModelPrice price in PriceValues)
             {
-                price.Print(graphics);                
+                price.Print(graphics);
             }
         }
     }

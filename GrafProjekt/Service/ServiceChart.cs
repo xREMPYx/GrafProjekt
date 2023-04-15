@@ -1,4 +1,5 @@
 ﻿using GrafProjekt.Model;
+using GrafProjekt.Model.Border;
 using System;
 using System.Collections.Generic;
 using System.Linq;

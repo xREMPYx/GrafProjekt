@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrafProjekt.Model
+namespace GrafProjekt.Model.Border
 {
     public class ModelPrice : ModelPrintable
     {
@@ -15,13 +15,13 @@ namespace GrafProjekt.Model
 
             SizeF size = graphics.MeasureString(price, ProgramSettings.TextFont);
 
-            graphics.DrawString(price, 
-                ProgramSettings.TextFont, 
-                new SolidBrush(ProgramSettings.TextColor), 
+            graphics.DrawString(price,
+                ProgramSettings.TextFont,
+                new SolidBrush(ProgramSettings.TextColor),
                 new PointF(ProgramSettings.ChartWidth + 10, Y - size.Height / 2));
 
             graphics.DrawLine(
-                new Pen(new SolidBrush(ProgramSettings.BorderLineColor)), 
+                new Pen(new SolidBrush(ProgramSettings.BorderLineColor)),
                 new PointF(0, Y),
                 new PointF(ProgramSettings.ChartWidth + 5, Y));
 
