@@ -33,7 +33,11 @@ namespace GrafProjekt.Model
 
         private void PrintRecordPriceBox(Graphics graphics)
         {
-            string price = Math.Round(Price, 2).ToString();
+            double roundedPrice = Price > 1 ?
+                Math.Round(Price, 2) :
+                Price;
+
+            string price = roundedPrice.ToString();
             SizeF textSize = graphics.MeasureString(price, ProgramSettings.TextFont);
 
             int recOffsetSize = 6;

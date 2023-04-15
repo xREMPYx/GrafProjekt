@@ -109,7 +109,7 @@ namespace GrafProjekt.Service
         {
             var record = displayRecords.Last();
 
-            string price = record.Price.ToString().TrimEnd('0');            
+            string price = record.Price.ToString();           
             SizeF textSize = graphics.MeasureString(price, ProgramSettings.TextFont);
 
             int recOffsetSize = 6;

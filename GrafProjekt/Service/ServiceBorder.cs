@@ -13,8 +13,8 @@ namespace GrafProjekt.Service
         public ModelBorder GetBorder(IList<ModelRecord> records)
         {
             int dateValuesCount = records.Last().Date.Subtract(records.First().Date) > TimeSpan.FromDays(2000) ? 
-                10 : 
-                7;
+                ProgramSettings.ChartWidth / 58 :
+                ProgramSettings.ChartWidth / 80;
 
             int priceValuesCount = 6;
 
