@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrafProjekt.Model.Border
 {
-    public class ModelPrice : ModelPrintable
+    public class ModelBorderPrice : ModelPrintable
     {
         public double Price { get; set; }
         public override void Print(Graphics graphics)

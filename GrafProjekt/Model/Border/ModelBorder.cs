@@ -8,8 +8,8 @@ namespace GrafProjekt.Model.Border
 {
     public class ModelBorder : ModelPrintable
     {
-        public IEnumerable<ModelDate> DateValues { get; set; }
-        public IEnumerable<ModelPrice> PriceValues { get; set; }
+        public IEnumerable<ModelBorderDate> DateValues { get; set; }
+        public IEnumerable<ModelBorderPrice> PriceValues { get; set; }
 
         public override void Print(Graphics graphics)
         {
@@ -20,12 +20,12 @@ namespace GrafProjekt.Model.Border
 
             graphics.DrawLines(new Pen(ProgramSettings.BorderLineColor, 2f), points);
 
-            foreach (ModelDate date in DateValues)
+            foreach (ModelBorderDate date in DateValues)
             {
                 date.Print(graphics);
             }
 
-            foreach (ModelPrice price in PriceValues)
+            foreach (ModelBorderPrice price in PriceValues)
             {
                 price.Print(graphics);
             }

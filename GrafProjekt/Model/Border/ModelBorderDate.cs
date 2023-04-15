@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GrafProjekt.Model.Border
 {
-    public class ModelDate : ModelPrintable
+    public class ModelBorderDate : ModelPrintable
     {
         public string Date { get; set; }
         public override void Print(Graphics graphics)
