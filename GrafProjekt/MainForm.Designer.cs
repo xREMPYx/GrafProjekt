@@ -28,169 +28,168 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ChartPictureBox = new System.Windows.Forms.PictureBox();
-            this.DateTimePicker_From = new System.Windows.Forms.DateTimePicker();
-            this.DateTimePicker_To = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Btn_Refresh = new System.Windows.Forms.Button();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label_file_name = new System.Windows.Forms.Label();
-            this.trackBar_accuracy = new System.Windows.Forms.TrackBar();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.trackBar_line_width = new System.Windows.Forms.TrackBar();
-            ((System.ComponentModel.ISupportInitialize)(this.ChartPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_accuracy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_line_width)).BeginInit();
-            this.SuspendLayout();
+            ChartPictureBox = new PictureBox();
+            DateTimePicker_From = new DateTimePicker();
+            DateTimePicker_To = new DateTimePicker();
+            label1 = new Label();
+            label2 = new Label();
+            Btn_Refresh = new Button();
+            colorDialog = new ColorDialog();
+            button1 = new Button();
+            label_file_name = new Label();
+            trackBar_accuracy = new TrackBar();
+            label4 = new Label();
+            label3 = new Label();
+            trackBar_line_width = new TrackBar();
+            ((System.ComponentModel.ISupportInitialize)ChartPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar_accuracy).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar_line_width).BeginInit();
+            SuspendLayout();
             // 
             // ChartPictureBox
             // 
-            this.ChartPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.ChartPictureBox.Location = new System.Drawing.Point(21, 24);
-            this.ChartPictureBox.Name = "ChartPictureBox";
-            this.ChartPictureBox.Size = new System.Drawing.Size(639, 460);
-            this.ChartPictureBox.TabIndex = 0;
-            this.ChartPictureBox.TabStop = false;
-            this.ChartPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ChartPictureBox_Paint);
-            this.ChartPictureBox.MouseLeave += new System.EventHandler(this.ChartPictureBox_MouseLeave);
-            this.ChartPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ChartPictureBox_MouseMove);
+            ChartPictureBox.BackColor = Color.Transparent;
+            ChartPictureBox.Location = new Point(21, 24);
+            ChartPictureBox.Name = "ChartPictureBox";
+            ChartPictureBox.Size = new Size(639, 460);
+            ChartPictureBox.TabIndex = 0;
+            ChartPictureBox.TabStop = false;
+            ChartPictureBox.Paint += ChartPictureBox_Paint;
+            ChartPictureBox.MouseLeave += ChartPictureBox_MouseLeave;
+            ChartPictureBox.MouseMove += ChartPictureBox_MouseMove;
             // 
             // DateTimePicker_From
             // 
-            this.DateTimePicker_From.Location = new System.Drawing.Point(666, 42);
-            this.DateTimePicker_From.Name = "DateTimePicker_From";
-            this.DateTimePicker_From.Size = new System.Drawing.Size(200, 23);
-            this.DateTimePicker_From.TabIndex = 1;
-            this.DateTimePicker_From.Value = new System.DateTime(2010, 1, 1, 23, 59, 0, 0);
-            this.DateTimePicker_From.ValueChanged += new System.EventHandler(this.DateTimePicker_From_ValueChanged);
+            DateTimePicker_From.Location = new Point(666, 42);
+            DateTimePicker_From.Name = "DateTimePicker_From";
+            DateTimePicker_From.Size = new Size(200, 23);
+            DateTimePicker_From.TabIndex = 1;
+            DateTimePicker_From.Value = new DateTime(2010, 1, 1, 23, 59, 0, 0);
+            DateTimePicker_From.ValueChanged += DateTimePicker_From_ValueChanged;
             // 
             // DateTimePicker_To
             // 
-            this.DateTimePicker_To.Location = new System.Drawing.Point(666, 101);
-            this.DateTimePicker_To.Name = "DateTimePicker_To";
-            this.DateTimePicker_To.Size = new System.Drawing.Size(200, 23);
-            this.DateTimePicker_To.TabIndex = 2;
-            this.DateTimePicker_To.ValueChanged += new System.EventHandler(this.DateTimePicker_To_ValueChanged);
+            DateTimePicker_To.Location = new Point(666, 101);
+            DateTimePicker_To.Name = "DateTimePicker_To";
+            DateTimePicker_To.Size = new Size(200, 23);
+            DateTimePicker_To.TabIndex = 2;
+            DateTimePicker_To.ValueChanged += DateTimePicker_To_ValueChanged;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(666, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Od:";
+            label1.AutoSize = true;
+            label1.Location = new Point(666, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(26, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Od:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(666, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Do:";
+            label2.AutoSize = true;
+            label2.Location = new Point(666, 83);
+            label2.Name = "label2";
+            label2.Size = new Size(25, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Do:";
             // 
             // Btn_Refresh
             // 
-            this.Btn_Refresh.Location = new System.Drawing.Point(666, 147);
-            this.Btn_Refresh.Name = "Btn_Refresh";
-            this.Btn_Refresh.Size = new System.Drawing.Size(200, 23);
-            this.Btn_Refresh.TabIndex = 5;
-            this.Btn_Refresh.Text = "Obnovit";
-            this.Btn_Refresh.UseVisualStyleBackColor = true;
-            this.Btn_Refresh.Click += new System.EventHandler(this.Btn_Refresh_Click);
+            Btn_Refresh.Location = new Point(666, 147);
+            Btn_Refresh.Name = "Btn_Refresh";
+            Btn_Refresh.Size = new Size(200, 23);
+            Btn_Refresh.TabIndex = 5;
+            Btn_Refresh.Text = "Obnovit";
+            Btn_Refresh.UseVisualStyleBackColor = true;
+            Btn_Refresh.Click += Btn_Refresh_Click;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(750, 461);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Zvolit zdroj";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button_Change_File_Click);
+            button1.Location = new Point(750, 461);
+            button1.Name = "button1";
+            button1.Size = new Size(121, 23);
+            button1.TabIndex = 6;
+            button1.Text = "Zvolit zdroj";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button_Change_File_Click;
             // 
             // label_file_name
             // 
-            this.label_file_name.AutoSize = true;
-            this.label_file_name.Location = new System.Drawing.Point(666, 465);
-            this.label_file_name.Name = "label_file_name";
-            this.label_file_name.Size = new System.Drawing.Size(53, 15);
-            this.label_file_name.TabIndex = 7;
-            this.label_file_name.Text = "TSLA.csv";
+            label_file_name.AutoSize = true;
+            label_file_name.Location = new Point(666, 465);
+            label_file_name.Name = "label_file_name";
+            label_file_name.Size = new Size(61, 15);
+            label_file_name.TabIndex = 7;
+            label_file_name.Text = "BRK-A.csv";
             // 
             // trackBar_accuracy
             // 
-            this.trackBar_accuracy.LargeChange = 1;
-            this.trackBar_accuracy.Location = new System.Drawing.Point(666, 212);
-            this.trackBar_accuracy.Maximum = 5;
-            this.trackBar_accuracy.Minimum = 1;
-            this.trackBar_accuracy.Name = "trackBar_accuracy";
-            this.trackBar_accuracy.Size = new System.Drawing.Size(200, 45);
-            this.trackBar_accuracy.TabIndex = 8;
-            this.trackBar_accuracy.Value = 1;
-            this.trackBar_accuracy.ValueChanged += new System.EventHandler(this.trackBar_accuracy_ValueChanged);
+            trackBar_accuracy.LargeChange = 1;
+            trackBar_accuracy.Location = new Point(666, 212);
+            trackBar_accuracy.Maximum = 5;
+            trackBar_accuracy.Minimum = 1;
+            trackBar_accuracy.Name = "trackBar_accuracy";
+            trackBar_accuracy.Size = new Size(200, 45);
+            trackBar_accuracy.TabIndex = 8;
+            trackBar_accuracy.Value = 1;
+            trackBar_accuracy.ValueChanged += trackBar_accuracy_ValueChanged;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(666, 194);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(143, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Přesnost (počet záznamů)";
+            label4.AutoSize = true;
+            label4.Location = new Point(666, 194);
+            label4.Name = "label4";
+            label4.Size = new Size(143, 15);
+            label4.TabIndex = 9;
+            label4.Text = "Přesnost (počet záznamů)";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(666, 256);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 15);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Šírka čáry grafu";
+            label3.AutoSize = true;
+            label3.Location = new Point(666, 256);
+            label3.Name = "label3";
+            label3.Size = new Size(88, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Šírka čáry grafu";
             // 
             // trackBar_line_width
             // 
-            this.trackBar_line_width.LargeChange = 10;
-            this.trackBar_line_width.Location = new System.Drawing.Point(666, 274);
-            this.trackBar_line_width.Maximum = 40;
-            this.trackBar_line_width.Minimum = 15;
-            this.trackBar_line_width.Name = "trackBar_line_width";
-            this.trackBar_line_width.Size = new System.Drawing.Size(200, 45);
-            this.trackBar_line_width.TabIndex = 10;
-            this.trackBar_line_width.Value = 15;
-            this.trackBar_line_width.ValueChanged += new System.EventHandler(this.trackBar_line_width_ValueChanged);
+            trackBar_line_width.LargeChange = 10;
+            trackBar_line_width.Location = new Point(666, 274);
+            trackBar_line_width.Maximum = 40;
+            trackBar_line_width.Minimum = 15;
+            trackBar_line_width.Name = "trackBar_line_width";
+            trackBar_line_width.Size = new Size(200, 45);
+            trackBar_line_width.TabIndex = 10;
+            trackBar_line_width.Value = 15;
+            trackBar_line_width.ValueChanged += trackBar_line_width_ValueChanged;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 503);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.trackBar_line_width);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.trackBar_accuracy);
-            this.Controls.Add(this.label_file_name);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Btn_Refresh);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.DateTimePicker_To);
-            this.Controls.Add(this.DateTimePicker_From);
-            this.Controls.Add(this.ChartPictureBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.ChartPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_accuracy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_line_width)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(883, 503);
+            Controls.Add(label3);
+            Controls.Add(trackBar_line_width);
+            Controls.Add(label4);
+            Controls.Add(trackBar_accuracy);
+            Controls.Add(label_file_name);
+            Controls.Add(button1);
+            Controls.Add(Btn_Refresh);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(DateTimePicker_To);
+            Controls.Add(DateTimePicker_From);
+            Controls.Add(ChartPictureBox);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "MainForm";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)ChartPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar_accuracy).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar_line_width).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

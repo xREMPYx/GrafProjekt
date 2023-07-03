@@ -9,14 +9,27 @@ namespace GrafProjekt.Service
 {
     public class ServiceFile
     {
-        private string filePath = "TSLA.csv";
-        public string GetFileName() => Path.GetFileName(filePath);
+        private string fileName = "sample_BRK-A.csv";
+        public string GetFilePath()
+        {
+            string path = Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName;
+
+            string filePath = string.Empty;
+            string[] parts = path.Split('\\');
+
+            for (int i = 0; i < parts.Length - 3; i++)
+            {
+                filePath += parts[i] + "\\";
+            };
+
+            return Path.Combine(filePath, fileName);
+        } 
         
         public IList<ModelRecord> GetAllRecords()
         {
             IList<ModelRecord> records = new List<ModelRecord>();
 
-            using (StreamReader reader = new StreamReader(filePath))
+            using (StreamReader reader = new StreamReader(GetFilePath()))
             {
                 reader.ReadLine(); //skips heading
 
@@ -47,8 +60,8 @@ namespace GrafProjekt.Service
             {                
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    string tmp = filePath;
-                    filePath = fileDialog.FileName;
+                    string tmp = fileName;
+                    fileName = fileDialog.FileName;
 
                     try
                     {
@@ -58,10 +71,10 @@ namespace GrafProjekt.Service
                     catch (Exception)
                     {
                         MessageBox.Show("Zvolený soubor není v pořádku.");
-                        filePath = tmp;
+                        fileName = tmp;
                     }                   
                 }
-                return GetFileName();
+                return GetFilePath();
             };
         }
     }

@@ -9,7 +9,7 @@ namespace GrafProjekt
         {
             InitializeComponent();
             serviceChart = new ServiceChart();
-        }       
+        }
 
         private void ChartPictureBox_Paint(object sender, PaintEventArgs e)
         {
@@ -51,10 +51,10 @@ namespace GrafProjekt
         private void trackBar_accuracy_ValueChanged(object sender, EventArgs e)
         {
             int v = this.trackBar_accuracy.Value;
-            int r = v == 1 ? 
-                20 : v == 2 ? 
-                10 : v == 3 ? 
-                5 : v == 4 ? 
+            int r = v == 1 ?
+                20 : v == 2 ?
+                10 : v == 3 ?
+                5 : v == 4 ?
                 4 :
                 2;
 
@@ -62,7 +62,7 @@ namespace GrafProjekt
 
             UpdateRecords();
         }
-        
+
         private void trackBar_line_width_ValueChanged(object sender, EventArgs e)
         {
             int v = this.trackBar_line_width.Value;
